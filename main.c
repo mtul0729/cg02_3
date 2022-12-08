@@ -1,3 +1,4 @@
+//黄先生自己写的自己也看不懂的垃圾代码
 #include <stdio.h>
 
 int max_low;
@@ -32,7 +33,7 @@ int main() {
         int max = sort(*(matrix+i), M);
         int flag = 1;
         for (int j = 0; j < N; ++j) {
-            if (matrix[j][max_low] > max) {//
+            if (matrix[j][max_low] > max) {
                 flag = 0;
                 break;
             }
