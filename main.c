@@ -1,19 +1,19 @@
 //黄先生自己写的自己也看不懂的垃圾代码
 #include <stdio.h>
 
-int max_row;
+int max_in_row;
 _Bool equal = 0;
 
 //先写一个用来寻找行内最大元素的函数
 int sort(const int * low, int M) {
     int max = low[0];
     if (equal == 0) {
-        max_row = 0;
+        max_in_row = 0;
     } else equal = 0;
-    for (int i = max_row + 1; i < M; ++i) {
+    for (int i = max_in_row + 1; i < M; ++i) {
         if (low[i] > max) {
             max = low[i];
-            max_row = i;  //标记最大元素所在列
+            max_in_row = i;  //标记最大元素所在列
         } else if (low[i] == max)equal = 1; //遇到与前面相等的数就标记
     }
     return max;
@@ -33,12 +33,12 @@ int main() {
         int max = sort(*(matrix+i), M);
         int flag = 1;
         for (int j = 0; j < N; ++j) {
-            if (matrix[j][max_row] > max) {
+            if (matrix[j][max_in_row] > max) {
                 flag = 0;
                 break;
             }
         }
-        if (flag == 1)printf("%d %d %d\n", max, i + 1, max_row + 1);
+        if (flag == 1)printf("%d %d %d\n", max, i + 1, max_in_row + 1);
     }
     return 0;
 }
